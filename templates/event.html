@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
-<label>Enter an event name</label>
-<input type="text" id="firstNum">
-<br>
-<label for="datePicker">Pick an event date</label>
-<input type="date" id="datePicker" name="datePicker" max="2025-01-01">
-<br>
-<form action="index.html" method="POST">
-<label>Fill in your availability below</label><br>
-<label for="24">24 hour mode</label>
-<select id="24" name="24" multiple>
-</select>
-<br>
-<label for="12">12 hour mode</label>
-<select id="12" name="12" multiple>
-</select>
-<button type="button" id="save">Save event</button>
-</form>
-<br>
+	<form action="/event" method="post">
+		<label for="eventName" >Enter an event name</label>
+		<input type="text" name="eventName">
+
+		<br>
+
+		<label for="datePicker">Pick an event date</label>
+		<input type="date" id="datePicker" name="datePicker" max="2021-03-01">
+		
+		<br>
+
+		<label>Add you availability in ...</label>
+		<button type="button" id="24button">24 hour mode</button>
+		<button type="button" id="12button">12 hour mode</button>
+		
+		<div id="dd1">
+		<label for="24">24 hour mode (CDT)</label>
+		<select id="24" name="24" multiple>
+		</select>
+		</div>
+		
+		<br>
+		
+		<div id="dd2">
+		<label for="12">12 hour mode (CDT)</label>
+		<select id="12" name="12" multiple>
+		</select>
+		</div>
+		<br>
+		<button type="submit" id="save">Save event</button>
+		<br>
+	</form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="/static/event.js"></script>
+<script src="static/js/event.js"></script>
 </html>
