@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<label>Enter an event name</label>
+<input type="text" id="firstNum">
+<br>
+<label for="datePicker">Pick an event date</label>
+<input type="date" id="datePicker" name="datePicker" max="2025-01-01">
+<br>
+<form action="index.html" method="POST">
+<label>Fill in your availability below</label><br>
+<label for="24">24 hour mode</label>
+<select id="24" name="24" multiple>
+</select>
+<br>
+<label for="12">12 hour mode</label>
+<select id="12" name="12" multiple>
+</select>
+<button type="button" id="save">Save event</button>
+</form>
+<br>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="event.js"></script>
+</html>
