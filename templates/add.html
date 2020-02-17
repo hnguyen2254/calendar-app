@@ -1,11 +1,15 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html>
 	<button type="button" id="event"><a href ='event'>Create an event</a></button>
 	<br>
 	<label>Your Events</label>
-	<ul id="yourEvents">
-	</ul>
+	<br>
+	{% for event in myEvents %}
+	<ul> {{event}} </ul>
+	{% endfor %}
+
 	<label>The Group's Events</label>
-	<ul id="groupEvents">
-	</ul>
+	{% for event in yourEvents %}
+	<ul> {{event}} </ul>
+	{% endfor %}
 </html>
