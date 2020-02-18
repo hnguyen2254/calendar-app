@@ -4,6 +4,17 @@
 	<title>Event Status</title>
 </head>
 <body>
-	<h>Event:</h>>
+	<form action="/eventstatus/{{eventName}}" method="post">
+	<h>Event: {{eventName}}</h><br>
+	<h>My availability {{myAvail}}</h><br>
+	<br>
+        {% for i in attending %}
+        	{% set att = attending[loop.index-1] %}
+        	{% set avail = availability[loop.index-1] %}
+				<ul>{{att}}'s Availability: {{avail}}</ul>
+        {% endfor %}
+    <br>
+
+</form>
 </body>
 </html>

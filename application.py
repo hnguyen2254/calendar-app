@@ -13,14 +13,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-def searchjson(x):
-    with open('data.json', 'r') as f:
-        data = json.load(f)
-        for i in data['users']:
-            if i['username'] == x:
-                return True
-    return False
-
 @app.route('/', methods=["GET", "POST"])
 def login():
 	session.clear()
@@ -70,7 +62,6 @@ def availability(eventName):
 		user = session['user']
 		avail12 = request.form.getlist('12time')
 		avail24 = request.form.getlist('24time')
-		print(eventName)
 		if len(avail24) == 0:
 			avail = avail12
 		else:
@@ -82,9 +73,24 @@ def availability(eventName):
 	else:
 		return render_template("availability.html", eventName=eventName)
 
-@app.route('/eventstatus')
-def eventstatus():
-	return render_template("eventstatus.html")
+@app.route('/eventstatus/<eventName>')
+def eventstatus(eventName):
+	attArray = []
+	availArray = []
+	user =  session['user']	
+	with open('data.json', 'r') as output:
+		data = json.load(output)
+		if len(data['events']) == 0:
+			return render_template("noattend.html")
+		else:
+			for info in data['users']:
+				if info['username'] == user and info['event'] == eventName:
+					myAvail = info['availability']
+			for info in data['events']:
+				if info['event'] == eventName:
+					attArray.append(info['attending'])
+					availArray.append(info['availability'])
+	return render_template("eventstatus.html", eventName = eventName, attending = attArray, availability=availArray, myAvail=myAvail)
 
 if __name__ == '__main__':
 	app.run(debug=True)
