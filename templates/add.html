@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
-	<button type="button" id="event"><a href ='event'>Create an event</a></button>
-	<br>
-	<label>Your Events</label>
-	<br>
-	{% for event in myEvents %}
-	<ul> {{event}} </ul>
-	{% endfor %}
-
-	<label>The Group's Events</label>
-	{% for event in yourEvents %}
-	<ul> {{event}} </ul>
-	{% endfor %}
+<body>
+		<h1 id="h1">When2meet Rip-Off</h1>
+    <br>
+		<button type="button" id="event"><a href='event'>Create an event</a></button>
+    <br>
+		<label id="l1">Your Events</label>
+        {% for event in myEvents %}
+		  <ul><button><a href='eventstatus'>{{event}}<a/></button></ul>
+        {% endfor %}
+    <br>
+		<label id="l2">The Group's Events</label>
+		{% for event in yourEvents %}
+            <ul>
+                <button type="button" id="b1"><a href='availability/{{event}}'>{{event}}</a></button>
+            </ul>
+        {% endfor %}
+</body>
 </html>

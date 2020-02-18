@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "username": "luis",
+      "event": "Party22",
+      "date": "2020-02-18",
+      "availability": [
+        "05:20-05:40"
+      ]
+    },
+    {
+      "username": "luis",
+      "event": "CNY",
+      "date": "2020-02-18",
+      "availability": [
+        "05:40-06:00"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "Party22",
+      "attending": "Warren",
+      "availability": [
+        "12:00 am-12:20 am"
+      ]
+    },
+    {
+      "event": "CNY",
+      "attending": "Warren",
+      "availability": [
+        "01:00 am-01:20 am",
+        "01:20 am-01:40 am",
+        "01:40 am-02:00 am",
+        "02:00 am-02:20 am",
+        "02:20 am-02:40 am"
+      ]
+    }
+  ]
+}

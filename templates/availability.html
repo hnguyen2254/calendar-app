@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<form action="/availability/{{eventName}}" method="post">
+	<label>Fill in your availability below</label><br>
+	<label for="24time">24 hour mode</label>
+	<select id="24time" name="24time" multiple>
+	</select>
+	<br>
+	<label for="12time">12 hour mode</label>
+	<select id="12time" name="12time" multiple>
+	</select>
+	<button type="button2" id="save2">Save availability</button>
+</form>
+<br>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="/static/js/availability.js"></script>
+</html>

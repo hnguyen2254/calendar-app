@@ -64,6 +64,28 @@ def event():
 	else:
 		return render_template("event.html")
 
+@app.route('/availability/<eventName>', methods=["GET", "POST"])
+def availability(eventName):
+	if request.method == "POST":
+		user = session['user']
+		avail12 = request.form.getlist('12time')
+		avail24 = request.form.getlist('24time')
+		print(eventName)
+		if len(avail24) == 0:
+			avail = avail12
+		else:
+			avail = avail24
+		usrData['events'].append({'event': eventName,'attending': user, 'availability': avail})
+		with open('data.json', 'w') as f:
+			json.dump(usrData, f, indent=2)
+		return redirect('/add')
+	else:
+		return render_template("availability.html", eventName=eventName)
+
+@app.route('/eventstatus')
+def eventstatus():
+	return render_template("eventstatus.html")
+
 if __name__ == '__main__':
 	app.run(debug=True)
 
